@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tdc-2022-api
+  labels:
+    app: tdc-2022-api
+spec:
+  replicas: 30
+  selector:
+    matchLabels:
+      app: tdc-2022-api
+  template:
+    metadata:
+      labels:
+        app: tdc-2022-api
+    spec:
+      containers:
+      - name: tdc-2022-api
+        image: tdc2022.azurecr.io/tdc-2022-api:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tdc-2022-api
+spec:
+  selector:
+    app: tdc-2022-api
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
