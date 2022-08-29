@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tdc-2022-api
-        image: acrtdc2022.azurecr.io/tdc-2022-api:latest
+        image: acrcodersinrio.azurecr.io/tdc-2022-api:latest
         ports:
         - containerPort: 80
 ---
